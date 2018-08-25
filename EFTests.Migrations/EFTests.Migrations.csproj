@@ -6,6 +6,13 @@
 
   <ItemGroup>
     <Compile Remove="Migrations\20180731021456_init2.cs" />
+    <Compile Remove="Migrations\20180802024416_Entity1.cs" />
+    <Compile Remove="Migrations\20180802033743_MaxLength.cs" />
+    <Compile Remove="Migrations\20180803022440_MaxLength.cs" />
+    <Compile Remove="Migrations\20180803022530_Entity12.cs" />
+    <Compile Remove="Migrations\20180803022729_Entity12.cs" />
+    <Compile Remove="Migrations\20180803022818_Entity12.cs" />
+    <Compile Remove="Migrations\20180803030554_Entity.cs" />
   </ItemGroup>
 
   <ItemGroup>

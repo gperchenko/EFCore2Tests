@@ -3,14 +3,16 @@ using EFTests.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFTests.DataAccess.Migrations
 {
     [DbContext(typeof(TestContext))]
-    partial class TestContextModelSnapshot : ModelSnapshot
+    [Migration("20180804011815_Entities")]
+    partial class Entities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,11 +36,6 @@ namespace EFTests.DataAccess.Migrations
                     b.HasIndex("Entity2Id");
 
                     b.ToTable("Entity1");
-
-                    b.HasData(
-                        new { Id = 1, Entity2Id = 1, Name = "Name21" },
-                        new { Id = 2, Entity2Id = 2, Name = "Name22" }
-                    );
                 });
 
             modelBuilder.Entity("EFTests.Entities.Entity2", b =>
@@ -53,11 +50,6 @@ namespace EFTests.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Entity2");
-
-                    b.HasData(
-                        new { Id = 1, Name = "Name21Updated" },
-                        new { Id = 2, Name = "Name22" }
-                    );
                 });
 
             modelBuilder.Entity("EFTests.Entities.Entity1", b =>
