@@ -1,0 +1,1 @@
+Remove-Migration -project EFTests.Migrations

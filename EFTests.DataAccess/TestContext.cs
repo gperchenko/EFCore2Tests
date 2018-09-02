@@ -5,7 +5,7 @@ namespace EFTests.DataAccess
 {
     public class TestContext : DbContext
     {
-        public DbSet<Entity1> Entity1 { get; set; }
+       // public DbSet<Entity1> Entity1 { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -18,16 +18,16 @@ namespace EFTests.DataAccess
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Entity1>()
-                .Property(c => c.Name)
-                .HasMaxLength(100);
+//            builder.Entity<Entity1>()
+//                .Property(c => c.Name)
+//                .HasMaxLength(100);
 
           
-            builder.Entity<Entity2>()
-                .Property(c => c.Name)
-                .HasMaxLength(100);
+//            builder.Entity<Entity2>()
+//                .Property(c => c.Name)
+//                .HasMaxLength(100);
 
-            builder.Seed();
+//            builder.Seed();
         }
     }
 }

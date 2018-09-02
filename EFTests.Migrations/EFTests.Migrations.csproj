@@ -13,6 +13,8 @@
     <Compile Remove="Migrations\20180803022729_Entity12.cs" />
     <Compile Remove="Migrations\20180803022818_Entity12.cs" />
     <Compile Remove="Migrations\20180803030554_Entity.cs" />
+    <Compile Remove="Migrations\20180804014109_Data.cs" />
+    <Compile Remove="Migrations\20180804014346_DataUpdated.cs" />
   </ItemGroup>
 
   <ItemGroup>

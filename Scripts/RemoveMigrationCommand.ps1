@@ -1,0 +1,1 @@
+dotnet ef migrations remove --project EFTests.Migrations --startup-project EFTests.ConsoleApp

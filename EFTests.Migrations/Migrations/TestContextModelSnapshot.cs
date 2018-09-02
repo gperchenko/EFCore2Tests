@@ -14,59 +14,10 @@ namespace EFTests.DataAccess.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("ChangeDetector.SkipDetectChanges", "true")
                 .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("EFTests.Entities.Entity1", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Entity2Id");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(100);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Entity2Id");
-
-                    b.ToTable("Entity1");
-
-                    b.HasData(
-                        new { Id = 1, Entity2Id = 1, Name = "Name21" },
-                        new { Id = 2, Entity2Id = 2, Name = "Name22" }
-                    );
-                });
-
-            modelBuilder.Entity("EFTests.Entities.Entity2", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(100);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Entity2");
-
-                    b.HasData(
-                        new { Id = 1, Name = "Name21Updated" },
-                        new { Id = 2, Name = "Name22" }
-                    );
-                });
-
-            modelBuilder.Entity("EFTests.Entities.Entity1", b =>
-                {
-                    b.HasOne("EFTests.Entities.Entity2", "Entity2")
-                        .WithMany()
-                        .HasForeignKey("Entity2Id")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
 #pragma warning restore 612, 618
         }
     }
