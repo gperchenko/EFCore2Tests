@@ -1,1 +1,1 @@
-dotnet ef migrations remove --project EFTests.Migrations --startup-project EFTests.ConsoleApp
+dotnet ef migrations remove --verbose --project EFTests.Migrations --startup-project EFTests.ConsoleApp

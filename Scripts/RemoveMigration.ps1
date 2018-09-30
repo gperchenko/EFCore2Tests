@@ -1,1 +1,1 @@
-Remove-Migration -project EFTests.Migrations
+Remove-Migration -project  --verbose EFTests.Migrations
