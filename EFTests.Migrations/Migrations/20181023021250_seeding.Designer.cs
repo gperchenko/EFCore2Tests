@@ -4,14 +4,16 @@ using EFTests.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFTests.DataAccess.Migrations
 {
     [DbContext(typeof(TestContext))]
-    partial class TestContextModelSnapshot : ModelSnapshot
+    [Migration("20181023021250_seeding")]
+    partial class seeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,17 +66,13 @@ namespace EFTests.DataAccess.Migrations
                     b.Property<string>("Name")
                         .HasMaxLength(100);
 
-                    b.Property<byte[]>("RowVersion")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate();
-
                     b.HasKey("Id");
 
                     b.ToTable("Samurais");
 
                     b.HasData(
                         new { Id = 1, Name = "Samu1" },
-                        new { Id = 2, Name = "Supper Samurai" }
+                        new { Id = 2, Name = "Samu1" }
                     );
                 });
 
@@ -114,14 +112,13 @@ namespace EFTests.DataAccess.Migrations
                     );
                 });
 
-            modelBuilder.Entity("EFTests.Entities.SecretIdentity2", b =>
+            modelBuilder.Entity("SamuraiAppCore.Domain.SecretIdentity2", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("RealName")
-                        .HasMaxLength(100);
+                    b.Property<string>("RealName");
 
                     b.Property<int?>("SamuraiId");
 
@@ -163,11 +160,11 @@ namespace EFTests.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("EFTests.Entities.SecretIdentity2", b =>
+            modelBuilder.Entity("SamuraiAppCore.Domain.SecretIdentity2", b =>
                 {
                     b.HasOne("EFTests.Entities.Samurai")
                         .WithOne("SecretIdentity2")
-                        .HasForeignKey("EFTests.Entities.SecretIdentity2", "SamuraiId");
+                        .HasForeignKey("SamuraiAppCore.Domain.SecretIdentity2", "SamuraiId");
                 });
 #pragma warning restore 612, 618
         }
